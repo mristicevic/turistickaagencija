@@ -33,3 +33,4 @@ route::post('/addcart/{id}',[HomeController::class,'addcart']);
 route::get('/showcart',[HomeController::class,'showcart']);
 route::get('/delete/{id}',[HomeController::class,'delete']);
 route::get('/view_catagory',[AdminController::class,'view_catagory']);
+route::get('/add_catagory',[AdminController::class,'add_catagory']);
