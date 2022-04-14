@@ -34,3 +34,6 @@ route::get('/showcart',[HomeController::class,'showcart']);
 route::get('/delete/{id}',[HomeController::class,'delete']);
 route::get('/view_catagory',[AdminController::class,'view_catagory']);
 route::post('/add_category',[AdminController::class,'add_category']);
+route::get('/delete_category/{id}',[AdminController::class,'delete_category']);
+route::get('/view_trip',[AdminController::class,'view_trip']);
+route::post('/add_trip',[AdminController::class,'add_trip']);
