@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <base href="/public">
     <!-- Required meta tags -->
     @include('admin.css')
     <style type = "text/css"> 
@@ -54,41 +55,41 @@
           </div>
           @endif
 
-          <h2 class="h2font">ADD TRIP</h2>
+          <h2 class="h2font">UPDATE TRIP</h2>
           
-          <form action ="{{url('/add_trip')}}" method="POST"  enctype="multipart/form-data">
+          <form action ="{{url('/update_trip_confirm', $trip->id)}}" method="POST"  enctype="multipart/form-data">
 
             @csrf
             <div>
             <label>Trip name </label>
-            <input type = "text" class="input_color"  name="title" placeholder ="Write trip name" required="">
+            <input type = "text" class="input_color"  name="title" placeholder ="Write trip name" required="" value="{{$trip->title}}">
             </div>
                
             <div>
             <label>Desctiption of trip </label>
-            <input type = "text" class="input_color"  name="description" placeholder ="Description of trip" required="">
+            <input type = "text" class="input_color"  name="description" placeholder ="Description of trip" required="" value="{{$trip->description}}">
             </div>
             
             
 
             <div>
             <label>Time </label>
-            <input type = "text" class="input_color"  name="time" placeholder ="Time" required="">
+            <input type = "text" class="input_color"  name="time" placeholder ="Time" required="" value="{{$trip->time}}">
             </div>
 
             <div>
             <label>Quantity </label>
-            <input type = "number" class="input_color" min="0" name="quantity" placeholder ="Quantity" required="">
+            <input type = "number" class="input_color" min="0" name="quantity" placeholder ="Quantity" required="" value="{{$trip->quantity}}">
             </div>
 
             <div>
             <label>Price </label>
-            <input type = "number" class="input_color"  name="price" placeholder ="Price" required="">
+            <input type = "number" class="input_color"  name="price" placeholder ="Price" required="" value="{{$trip->price}}"> 
             </div>
 
             <div>
             <label>Discount </label>
-            <input type = "number" class="input_color"  name="discoount" placeholder ="Discount" required="">
+            <input type = "number" class="input_color"  name="discoount" placeholder ="Discount" required="" value="{{$trip->discount_price}}" >
             </div>
 
             <div>
@@ -101,13 +102,17 @@
             </select>
             </div>
 
+            <div>
+            <label>Current image </label>
+            <img  height="100" width="100" src="/trip/{{$trip->image}}">
+        </div>
 
             <div>
-            <label>Image </label>
-            <input type = "file"   name="image" placeholder ="Image" required="">
+            <label>New image </label>
+            <input type = "file"   name="image" placeholder ="Image"  >
              </div>
 
-            <input type ="submit"  class ="btn btn-primary" name="submit" value="Add trip" >
+            <input type ="submit"  class ="btn btn-primary" name="submit" value="Update trip" >
           
              </form>
 

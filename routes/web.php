@@ -37,3 +37,10 @@ route::post('/add_category',[AdminController::class,'add_category']);
 route::get('/delete_category/{id}',[AdminController::class,'delete_category']);
 route::get('/view_trip',[AdminController::class,'view_trip']);
 route::post('/add_trip',[AdminController::class,'add_trip']);
+route::get('/show_trips',[AdminController::class,'show_trips']);
+route::get('/delete_trip/{id}',[AdminController::class,'delete_trip']);
+route::get('/update_trip/{id}',[AdminController::class,'update_trip']);
+route::post('/update_trip_confirm/{id}',[AdminController::class,'update_trip_confirm']);
+
+route::get('/all_trips',[HomeController::class,'all_trips']);
+

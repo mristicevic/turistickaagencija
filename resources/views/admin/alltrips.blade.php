@@ -9,13 +9,18 @@
           padding-top : 40px;
 
         }
+        .img_size{
+            width: 150px;
+            height: 150px;
+        }
         .center{
           margin:auto;
-          width: 50%;
+          width: 100%;
           text-align:center;
           margin-top: 30px;
           border: 3px solid purple;
           background: #163376;
+          font-size: 13px;
 
         }
         .center tr:first-child td {
@@ -28,6 +33,7 @@
           font-size : 40px;
           padding-bottom : 40px;
         }
+
         .input_color{
           color:black;
         }
@@ -43,6 +49,7 @@
       <div class="main-panel">
           <div class="content-wrapper">
           <div class="div_center">
+         
           @if(session()->has('message'))
             <div class = "alert alert-success">
               <button type="button" class ="close" data-dismiss="alert"
@@ -51,26 +58,40 @@
               {{session()->get('message')}}
           </div>
           @endif
-            <h2 class="h2font">ADD CATEGORY</h2>
+            <h2 class="h2font">ALL TRIPS</h2>
           
-          <form action ="{{url('/add_category')}}" method="POST">
-
-            @csrf
-
-            <input type = "text" class="input_color"  name="catagory" placeholder ="Write category name">
-            <input type ="submit"  class ="btn btn-primary" name="submit" value="Add category" >
           
-          </form>
 
           <table class="center">
             <tr>
-            <td>CATEGORY NAME</td>
+              <td>TITLE</td>
+              <td>DESCTRIPTION</td>
+              <td>CATEGORY</td>
+              <td>TIME</td>
+              <td>QUANTITY</td>
+              <td>PRICE</td>
+              <td>DISCOUNT PRICE</td>
+              <td>IMAGE</td>
               <td>ACTION</td>
             </tr>
             @foreach($data as $data)
-            <tr>
-            <td>{{$data->catagory_name}}</td>
-            <td><a class ="btn btn-danger" href="{{url('/delete_category',$data->id)}}">Delete </a>  </td>
+            
+            <td>{{$data->title}}</td>
+            <td>{{$data->description}}</td>
+            <td>{{$data->category->catagory_name}}</td>
+            <td>{{$data->time}}</td>
+            <td>{{$data->quantity}}</td>
+            <td>{{$data->price}}</td>
+            <td>{{$data->discount_price}}</td>
+            <td>
+                <img class="img_size" src="/trip/{{$data->image}}">
+            </td>
+
+            <td>
+            <a class ="btn btn-danger" href="{{url('/delete_trip',$data->id)}}">Delete </a>  
+            <a class ="btn btn-info" href="{{url('/update_trip',$data->id)}}">Edit </a>  
+
+        </td>
             </tr>
             @endforeach
          </table>

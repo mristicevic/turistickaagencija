@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\User;
-use App\Models\Product;
+use App\Models\Trip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index(){
-        $data = product::all();
+        $data = trip::paginate(3);
         return view('user.home',compact('data'));
+    }
 
+    public function all_trips(){
+        $data = trip::all();
+        return view('user.alltrips',compact('data'));
     }
 
     public function delete($id){
@@ -51,9 +55,9 @@ class HomeController extends Controller
     public function search(Request $request){
 
     $search = $request->search;
-    $data = product::where('title','Like','%'.$search.'%')->get();
+    $data = trip::where('title','Like','%'.$search.'%')->get();
     
-    return view('user.home',compact('data'));
+    return view('user.alltrips',compact('data'));
     
     }
 

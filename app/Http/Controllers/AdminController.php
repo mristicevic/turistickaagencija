@@ -20,6 +20,13 @@ class AdminController extends Controller
     return redirect()->back()->with('message','Category removed successfully.');
   }
 
+  public function delete_trip($id)
+  {
+    $data = trip::find($id);
+    $data -> delete();
+    return redirect()->back()->with('message','Trip removed successfully.');
+  }
+
 
   public function add_category(Request $request){
     
@@ -39,7 +46,8 @@ class AdminController extends Controller
       return view('admin.trip', compact('catagory'));
   }
 
-  public function add_trip(Request $request){
+  public function add_trip(Request $request)
+  {
     
     $data = new trip;
     
@@ -50,7 +58,11 @@ class AdminController extends Controller
     $data->price = $request->price;
     $data->discount_price = $request->discoount;
     $data->category_id = $request->category;
-    //$data->catagory_name = $request->price; slikaaaa
+    $image = $request->image;
+    $imagename = time().'.'.$image->getClientOriginalExtension();
+    $image->move('trip',$imagename);
+    $data->image = $imagename;
+
 
 
 
@@ -60,6 +72,44 @@ class AdminController extends Controller
   }
 
 
+  public function show_trips(){
+ 
+    $catagory = catagory ::all();
+    $data = trip::all();
+    return view('admin.alltrips',compact('catagory'),  compact('data'));
+
+  }
+
+  public function update_trip($id)
+  {
+    $trip = trip::find($id); 
+    $catagory = catagory ::all();
+    return view('admin.update_trip', compact('trip'),compact('catagory'));
+  }
+
+  public function update_trip_confirm(Request $request, $id)
+  {
+    $data = trip::find($id);
+    $data->title = $request->title;
+    $data->description = $request->description;
+    $data->time = $request->time;
+    $data->quantity = $request->quantity;
+    $data->price = $request->price;
+    $data->discount_price = $request->discoount;
+    $data->category_id = $request->category;
+    
+    $image = $request->image;
+    if($image){
+      $imagename = time().'.'.$image->getClientOriginalExtension();
+      $image->move('trip',$imagename);
+      $data->image = $imagename;
+    }
+    
+    $data->save();
+    return redirect()->back()->with('message','Trip Updated Successfully');
+
+
+  }
 
 
 

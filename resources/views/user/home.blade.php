@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Harry Potter Store </title>
+    <title>Travel Pro</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,60 +35,17 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-        <a class="navbar-brand" ><h2>Harry Potter <em>Store</em></h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{{url('home')}}">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li> 
-             
-              <li class="nav-item">
-              @if (Route::has('login'))
-                    @auth
-                    <li class="nav-item"> <a class="nav-link" href="{{url('showcart')}}">Cart</a> </li> 
-                    <li class="nav-item"> <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+    @include('user.header')
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form></li>
-
-                       @else
-                    <li> <a class="nav-link" href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                        <li>  <a class="nav-link" href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                
-            @endif
-            </li>
-
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
+   
     <!-- Page Content -->
     <!-- Banner Starts Here -->
     <div class="banner header-text">
       <div class="owl-banner owl-carousel">
         <div class="banner-item-01">
           <div class="text-content">
-            <h4>Wizarding world</h4>
-            <h2>Welcome to Harry Potter store</h2>
+            <h4>Traveling agency</h4>
+            <h2>Welcome to Travel Pro</h2>
           </div>
         </div> <!-- Banner Ends Here 
         <div class="banner-item-02">
@@ -108,19 +65,21 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>About Harry Potter store</h2>
+              <h2>About Travel Pro agency</h2>
             </div>
           </div>
           <div class="col-md-6">
             <div class="left-content">
-              <h4>Welcome to our magical Wizarding world </h4>
-              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">The Harry Potter Shop </a> is the official online shop for all your wizarding needs, housing ranges from Warner Bros. Studio Tour London, the Harry Potter shop at Platform 9 ¾ and Harry Potter New York providing a spellbinding shopping experience.
+              <h4> Let's travel together! </h4>
+              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">Travel Pro </a> Travel Pro is a globally reaching company, led with people first, family values. We are a company where every team member is empowered to lead change and drive vision.
+
+And with a team of experts who are driven by their passion for travel, be assured — we know how personal travel is. Whatever the reason, wherever the destination – it’s unique for everyone and we are committed to the journey and the experience. So, the only question now is, where to next?
              
             </div>
           </div>
           <div class="col-md-6">
             <div class="right-image">
-              <img src="assets/images/store.jpg" alt="">
+              <img src="assets/images/abouttt.jpg" alt="">
             </div>
           </div>
         </div>
