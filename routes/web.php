@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ShopCartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,4 +44,6 @@ route::get('/update_trip/{id}',[AdminController::class,'update_trip']);
 route::post('/update_trip_confirm/{id}',[AdminController::class,'update_trip_confirm']);
 
 route::get('/all_trips',[HomeController::class,'all_trips']);
+route::post('/shopcart',[ShopCartController::class,'store']);
+
 

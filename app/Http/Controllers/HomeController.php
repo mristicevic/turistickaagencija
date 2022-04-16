@@ -46,7 +46,7 @@ class HomeController extends Controller
             return view('admin.home');  
 
         }else{
-            $data = product::all();
+            $data = trip::all();
             return view('user.home',compact('data')); 
         }
         

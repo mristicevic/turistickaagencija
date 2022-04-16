@@ -8,7 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-import Vue from "vue";
+import Vue from 'vue/dist/vue.min.js'
 import VueToastr from "vue-toastr";
 Vue.use(VueToastr);
 /**
@@ -23,7 +23,7 @@ Vue.use(VueToastr);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('add-to-cart-button', require('./components/AddToCart.vue').default);
+Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

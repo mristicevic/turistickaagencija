@@ -1,10 +1,5 @@
 @extends('user.frontend')
 @section('content')
-<<<<<<< HEAD
-=======
-    <!-- ***** Preloader Start ***** -->
-    
->>>>>>> 836e5b8dcd6d3148d62274af9521c0b5b8a4b87f
     <!-- Page Content -->
     <div class="page-heading products-heading header-text">
       <div class="container">
@@ -51,7 +46,7 @@
                 <p>{{$product->description}}</p>
 
                 
-                <add-to-cart-button trip-id="{{$product->id}}" user-id="{{auth()->user()->id ?? 0}}"/>
+                <add-to-cart trip-id="{{$product->id}}" user-id="{{auth()->user()->id ?? 0}}"/>
                 
               </div>
             </div>
@@ -63,13 +58,3 @@
     </div>
 @endsection
     
-<<<<<<< HEAD
-=======
-    
-
-    
-    
-
-
-    @endsection
->>>>>>> 836e5b8dcd6d3148d62274af9521c0b5b8a4b87f
