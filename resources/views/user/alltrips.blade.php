@@ -1,5 +1,10 @@
 @extends('user.frontend')
 @section('content')
+<<<<<<< HEAD
+=======
+    <!-- ***** Preloader Start ***** -->
+    
+>>>>>>> 836e5b8dcd6d3148d62274af9521c0b5b8a4b87f
     <!-- Page Content -->
     <div class="page-heading products-heading header-text">
       <div class="container">
@@ -58,3 +63,13 @@
     </div>
 @endsection
     
+<<<<<<< HEAD
+=======
+    
+
+    
+    
+
+
+    @endsection
+>>>>>>> 836e5b8dcd6d3148d62274af9521c0b5b8a4b87f
