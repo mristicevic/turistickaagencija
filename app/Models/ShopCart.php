@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Trip;
 
 class ShopCart extends Model
 {
@@ -21,6 +22,6 @@ class ShopCart extends Model
 
     public function trip()
     {
-        return $this-> hasMany(Product::class, 'id', 'trip_id');
+        return $this-> hasMany(Trip::class, 'id', 'trip_id');
     }
 }

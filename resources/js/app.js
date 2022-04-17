@@ -24,6 +24,10 @@ Vue.use(VueToastr);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
+Vue.component('shopcart', require('./components/ShopCart.vue').default);
+Vue.component('checkout', require('./components/Checkout.vue').default);
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

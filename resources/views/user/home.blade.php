@@ -23,71 +23,76 @@
   </head>
 
   <body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-
-    <!-- Header -->
-    @include('user.header')
-
-   
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="banner header-text">
-      <div class="owl-banner owl-carousel">
-        <div class="banner-item-01">
-          <div class="text-content">
-            <h4>Traveling agency</h4>
-            <h2>Welcome to Travel Pro</h2>
-          </div>
-        </div> <!-- Banner Ends Here 
-        <div class="banner-item-02">
-          <div class="text-content">
-            <h4>Flash Deals</h4>
-            <h2>Get your best products</h2>
-          </div>
-        </div>-->
-      </div>
-    </div>
-    <!-- Banner Ends Here -->
-
-    @include('user.product')
-
-    <div class="best-features">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>About Travel Pro agency</h2>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="left-content">
-              <h4> Let's travel together! </h4>
-              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">Travel Pro </a> Travel Pro is a globally reaching company, led with people first, family values. We are a company where every team member is empowered to lead change and drive vision.
-
-And with a team of experts who are driven by their passion for travel, be assured — we know how personal travel is. Whatever the reason, wherever the destination – it’s unique for everyone and we are committed to the journey and the experience. So, the only question now is, where to next?
+    <div id="app">
+      @include('user.header')
              
+
+    
+          <!-- ***** Preloader Start ***** -->
+              <div id="preloader">
+                  <div class="jumper">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                  </div>
+              </div>  
+          <!-- ***** Preloader End ***** -->
+
+          <!-- Header -->
+    
+    
+   
+          <!-- Page Content -->
+          <!-- Banner Starts Here -->
+            <div class="banner header-text">
+              <div class="owl-banner owl-carousel">
+                  <div class="banner-item-01">
+                      <div class="text-content">
+                        <h4>Traveling agency</h4>
+                        <h2>Welcome to Travel Pro</h2>
+                      </div>
+                  </div>
+                  <!-- Banner Ends Here 
+                <div class="banner-item-02">
+                  <div class="text-content">
+                    <h4>Flash Deals</h4>
+                    <h2>Get your best products</h2>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+          <!-- Banner Ends Here -->
+
+          @include('user.product')
+
+          <div class="best-features">
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2>About Travel Pro agency</h2>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="left-content">
+                      <h4> Let's travel together! </h4>
+                      <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">Travel Pro </a> Travel Pro is a globally reaching company, led with people first, family values. We are a company where every team member is empowered to lead change and drive vision.
+
+        And with a team of experts who are driven by their passion for travel, be assured — we know how personal travel is. Whatever the reason, wherever the destination – it’s unique for everyone and we are committed to the journey and the experience. So, the only question now is, where to next?
+                    
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="right-image">
+                      <img src="assets/images/abouttt.jpg" alt="">
+                    </div>
+                  </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="right-image">
-              <img src="assets/images/abouttt.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
  
-
+    </div> 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

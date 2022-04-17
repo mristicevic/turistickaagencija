@@ -27,8 +27,9 @@
                     'trip_Id':this.tripId
                 });
             
-            
-            console.log(response.data);
+             this.$root.$emit('changeInCart', response.data.items)
+           
+            //console.log(response.data);
         }
     }  , 
        mounted() {

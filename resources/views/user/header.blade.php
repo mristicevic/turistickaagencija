@@ -24,9 +24,9 @@
               <li class="nav-item">
               @if (Route::has('login'))
                     @auth
-                    <li class="nav-item"> <a class="nav-link" href="{{url('showcart')}}">Cart</a> </li> 
+                    <shopcart />
                     <li class="nav-item"> <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                        @csrf
 
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();

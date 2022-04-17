@@ -16,7 +16,7 @@ class ShopCartController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.checkout');
     }
 
     /**
@@ -37,6 +37,12 @@ class ShopCartController extends Controller
      */
         public function store(Request $request)
         {
+            if(!$request->get('trip_Id')){
+                return [
+                    'message'=>'Cart items returned',
+                    'items' => shopcart::where('user_id', auth()->user()->id)->sum('quantity'), 
+                ];
+            }
             $trip = trip::where('id',$request->get('trip_Id'))->first();
             
             
@@ -57,14 +63,15 @@ class ShopCartController extends Controller
             }
             
  
-        
-
-            if($shopcart){
-                return['message'=>'Cart Updated'];
+            if($shopcart)
+            {
+            return [
+                'message'=>'Cart Updated',
+                'items' => shopcart::where('user_id', auth()->user()->id)->sum('quantity'), 
+            ];
             }
-            else{
-                return response()->json($shopcart, 204);
-                }
+
+           
         }
     
 
@@ -112,4 +119,44 @@ class ShopCartController extends Controller
     {
         //
     }
+    
+    public function getCartItemForCheckout()
+    {
+        $cartItems = ShopCart::with('trip')->where('user_id', auth()->user()->id)->get();
+
+        $finalData = [];
+
+        $amount = 0;
+
+
+        if(isset($cartItems))
+        {
+            foreach($cartItems as $cartItem)
+            {
+                if($cartItem->trip)
+                {
+                    foreach($cartItem->trip as $cartProduct)
+                    {
+                        if($cartProduct->id == $cartItem->trip_id)
+                        {
+                            $finalData[$cartItem->trip_id]['id'] = $cartProduct->id;
+                            $finalData[$cartItem->trip_id]['title'] = $cartProduct->title;
+                            $finalData[$cartItem->trip_id]['quantity'] = $cartItem->quantity;
+                            $finalData[$cartItem->trip_id]['price'] = $cartItem->price;
+                            $finalData[$cartItem->trip_id]['total'] = $cartItem->price * $cartItem->quantity;
+                            $amount += $cartItem->price * $cartItem->quantity;
+                            $finalData['totalAmount'] = $amount;
+                        }
+                    }
+                }
+            }
+        }
+
+        return response()->json($finalData);
+        
+      
+
+    }  
+
+
 }

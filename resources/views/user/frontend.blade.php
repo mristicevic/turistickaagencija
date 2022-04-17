@@ -10,6 +10,7 @@
             <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
             <title>Travel Pro</title>
+            @yield('styles')
             <script src="{{asset('css/app.css')}}" defer></script>
 
             <!-- Bootstrap core CSS -->
@@ -26,8 +27,11 @@
         <body>
   
             <!-- ***** Preloader End ***** -->
-            @include('user.header')
+            
+            
             <div id="app">
+                @include('user.header')
+               
                 <div id="preloader">
                     <div class="jumper">
                         <div></div>
