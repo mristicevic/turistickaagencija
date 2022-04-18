@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ShopCart;
+use App\Models\Trip;
 use Illuminate\Http\Request;
 
-class CartController extends Controller
+class TripController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return ShopCart::all();
+        return trip::all();
     }
 
     /**
@@ -30,7 +30,7 @@ class CartController extends Controller
             
         ]);
 
-        return ShopCart::create($request->all());
+        return trip::create($request->all());
     }
 
     /**
@@ -41,7 +41,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        return ShopCart::find($id);
+        return trip::find($id);
     }
 
     /**
@@ -53,16 +53,16 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cart = Cart::find($id);
+        $trip = trip::find($id);
         request()->validate([
 
-            'quantity' => 'required'
+            'title' => 'required'
     
         ]);
         
-        $success = $cart->update([
+        $success = $trip->update([
           
-            'quantity' => request('quantity'),
+            'title' => request('title'),
     
         ]);
     
@@ -80,14 +80,14 @@ class CartController extends Controller
      */
 
     public function allcarts(){
-        return ShopCart::all(); 
+        return trip::all(); 
      }
     
 
 
     public function destroy($id)
     {
-        return ShopCart::destroy($id);
+        return trip::destroy($id);
     }
 
      /**

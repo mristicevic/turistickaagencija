@@ -1,10 +1,12 @@
 <?php
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\TripController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
+use App\Models\Trip;
+use App\Models\Catagory;
 use App\Models\User;
-use App\Models\Cart;
+use App\Models\ShopCart;
+use App\Models\Processing;
 use App\Http\Controllers\API\AuthController;
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +28,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 //vracanje korisnika
-Route::get('/products',function(){
-    return Product::all();
+Route::get('/trips',function(){
+    return Trip::all();
 });
 
 Route::get('/users',function(){
@@ -95,9 +97,9 @@ Route::delete('/users/{user}',function(User $user){
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/carts', [CartController::class, 'allcarts']);
-    Route::put('/carts/{id}', [CartController::class, 'update']);
-    Route::delete('/carts/{id}', [CartController::class, 'destroy']);
+    Route::get('/trips', [TripController::class, 'allcarts']);
+    Route::put('/trips/{id}', [TripController::class, 'update']);
+    Route::delete('/trips/{id}', [TripController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
