@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Trip;
 use App\Models\ShopCart;
+use Stripe;
+use App\Models\Processing;
 
 class ShopCartController extends Controller
 {
@@ -195,6 +197,7 @@ class ShopCartController extends Controller
        
         // Process payment.
 
+
         $stripe = Stripe::make(env('STRIPE_KEY'));
 
 
@@ -243,11 +246,14 @@ class ShopCartController extends Controller
 
         $charge = $stripe->charges()->create([
             'customer' => $customer['id'],
-            'currency' => 'USD',
+            'currency' => 'EUR',
             'amount' => $amount,
             'description' => 'Payment for order',
         ]);
+       
+        //return response()->json($charge);
 
+        
         if($charge['status'] == "succeeded")
         {
             // Capture the details from stripe.
@@ -276,7 +282,7 @@ class ShopCartController extends Controller
             {
                 // Clear the cart after payment success.
 
-                Cart:: where('user_id', $client_id)->delete();
+                ShopCart:: where('user_id', $client_id)->delete();
 
                 return ['success'=> 'Order completed successfully'];
             }
@@ -286,6 +292,7 @@ class ShopCartController extends Controller
         {
             return ['error'=> 'Order failed contact support'];
         }
+        
     }
 
 
