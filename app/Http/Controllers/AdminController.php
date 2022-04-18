@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Catagory;
 use App\Models\Trip;
+use App\Models\Processing;
 class AdminController extends Controller
 {
   public function view_catagory()
@@ -78,6 +79,12 @@ class AdminController extends Controller
     $data = trip::all();
     return view('admin.alltrips',compact('catagory'),  compact('data'));
 
+  }
+
+
+  public function view_orders(){
+    $data = processing::all();
+    return view('admin.orders', compact('data'));
   }
 
   public function update_trip($id)

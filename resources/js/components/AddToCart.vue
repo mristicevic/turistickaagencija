@@ -15,7 +15,7 @@
     props:['tripId','userId']   ,
     methods:{
         async addTripToCart(){  
-                //alert(this.tripId);
+                
                 if(this.userId == 0){
                     this.$toastr.e('You Need to login, To add this product in Cart');
                     return;

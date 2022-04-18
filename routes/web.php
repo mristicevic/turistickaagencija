@@ -30,9 +30,7 @@ route::get('/redirect',[HomeController::class,'redirect']);
 route::get('/home',[HomeController::class,'redirect']);
 route::get('/search',[HomeController::class,'search']);
 
-//route::post('/addcart/{id}',[HomeController::class,'addcart']);
-///route::get('/showcart',[HomeController::class,'showcart']);
-//route::get('/delete/{id}',[HomeController::class,'delete']);
+
 route::get('/view_catagory',[AdminController::class,'view_catagory']);
 route::post('/add_category',[AdminController::class,'add_category']);
 route::get('/delete_category/{id}',[AdminController::class,'delete_category']);
@@ -42,6 +40,7 @@ route::get('/show_trips',[AdminController::class,'show_trips']);
 route::get('/delete_trip/{id}',[AdminController::class,'delete_trip']);
 route::get('/update_trip/{id}',[AdminController::class,'update_trip']);
 route::post('/update_trip_confirm/{id}',[AdminController::class,'update_trip_confirm']);
+route::get('/view_orders',[AdminController::class,'view_orders']);
 
 route::get('/all_trips',[HomeController::class,'all_trips']);
 route::post('/shopcart',[ShopCartController::class,'store']);
