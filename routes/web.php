@@ -47,7 +47,7 @@ route::get('/all_trips',[HomeController::class,'all_trips']);
 route::post('/shopcart',[ShopCartController::class,'store']);
 route::get('/checkout',[ShopCartController::class,'index']);
 route::get('/checkout/get/items',[ShopCartController::class,'getCartItemForCheckout']);
-
+Route::post('/process/user/payment', [ShopCartController::class, 'processPayment']);
 
 
 
